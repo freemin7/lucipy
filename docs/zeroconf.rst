@@ -25,20 +25,19 @@ providing the endpoint:
    >>> hc = LUCIDAC() # this will trigger the autodetection
 
 Direct access to the underlying API should not be neccessary, but is possible
-with :code:`import lucipy.detect`. The folling reference shows the exposed
+with :code:`import lucipy.detect`. The following reference shows the exposed
 functions.
 
 .. note::
 
-   As a design philosophy in *lucipy*, there are no dependencies. Therefore,
-   autodetection will only work if you have the 
+   *lucipy* does not have explicit dependencies by design.
+   Autodetection functionality requires these relevant libraries: 
    `zeroconf <https://python-zeroconf.readthedocs.io/>`_ and/or
-   `pySerial <https://pyserial.readthedocs.io/>`_ libraries installed.
+   `pySerial <https://pyserial.readthedocs.io/>`_ .
    
-   If these dependencies are not installed, the code will print warnings suggesting
-   you to install them in order to make autodetection work. That means that a line
-   such as :code:`hc = LUCIDAC()` will not work without an endpoint argument to the
-   :code:`LUCIDAC()` call.
+   If these dependencies are not installed, the code will throw errors suggesting
+   you to install them in order to make autodetection work. In this case
+   :code:`hc = LUCIDAC()` will not work and an endpoint argument is required instead.
    
 
 Code refererence
