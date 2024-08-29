@@ -3,7 +3,7 @@
 Circuit simulation
 ==================
 
-Lucipy ships two approaches to simulate a circuit configuration which both
+Lucipy comes with two approaches to simulate a circuit configuration which both
 solve circuit as a first order differential equation system using idealized
 math elements.
 
@@ -11,8 +11,8 @@ math elements.
   equations written symbolically, translating the analog circuit to its idealized
   math counterpart. This system can then be solved analytically
   or numerically.
-* The class :py:class:`.Simulation` does something similar but without making use of
-  Sympy, instead directly working on the UCI matrix. It computes the right hand side
+* The class :py:class:`.Simulation` uses the UCI matrix form to solve the intial 
+  value problem nummerically. It computes the right hand side 
   function by *loop unrolling* the LUCIDAC multipliers.
 
 Both approaches are currently limited to the LUCIDAC standard configuration
@@ -44,7 +44,7 @@ cut the circuit at the analog integrators and identity
        |                                |
        +---------...-[ UCI Matrix ]<----+
 
-This feedback network is linearized as in
+The dataflow of this feedback system looks like this:
 
 ::
 
@@ -103,8 +103,8 @@ then iteratively reinserting the solution for :math:`M^{out}`. (eq II) boils the
 Alternative simulation approaches
 ---------------------------------
 
-For sure there are many other ways how one could simulate the LUCIDAC. A few approaches
-are presented here with their advantages and disadvantages.
+The architecture of the LUCIDAC can be interpreted in using different (mathematical) view points 
+with their own advantages and disadvantages. 
 
 Graph/Netlist simulation
 ........................
